@@ -15,14 +15,14 @@ export  default function ToDosList({tasks, setTasks}){
 
   return(
     <>
-      <h2>Your to-do-s</h2>
+      <h2 className="m-2">Your to-do-s</h2>
       {tasks.length===0 ? <p>No tasks to do at the moment</p> :
-        <ul>
+        <ul className="list-group">
           {tasks.map(task => {
-            return <li key={task.id}>
-              <input checked={task.completed} type="checkbox" onChange={()=>toggleCompleted(task.id)}/>
-              {task.taskName}
-              <button id="deleteClassButton" onClick={() => deleteTask(task.id)}>Delete</button>
+            return <li className="list-group-item row" key={task.id}>
+              <input className="col-4 form-check-input me-2" id="completedCheckbox" checked={task.completed} type="checkbox" onChange={()=>toggleCompleted(task.id)}/>
+              <label className="col-4 form-check-label" htmlFor="completedCheckbox">{task.taskName}</label>
+              <button className="col-4 btn btn-outline-danger" id="deleteClassButton" onClick={() => deleteTask(task.id)}>Delete</button>
             </li>
           })}
         </ul>}

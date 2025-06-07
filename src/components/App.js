@@ -14,8 +14,8 @@ function App() {
     setTasks([...tasks, {id: crypto.randomUUID(), taskName: newTask, completed: false}]);
   }
   return (
-    <div className="App">
-      <h1>To do app</h1>
+    <div className="container">
+      <h1 className="m-3 text-center">To do app</h1>
       <NewToDo updateTasks={updateTasks}/>
       <ToDosList tasks={tasks} setTasks={setTasks}/>
     </div>
